@@ -17,28 +17,27 @@ const NewArrivals = () => {
     }, [products])
     return (
         <section className="max-padd-container pt-16">
-            <Title title1={'New'} title2={'Arivals'} titleStyles={'pb-10'} paraStyles={'!block'} />
+            <Title title1={'New'} title2={'Arrivals'} titleStyles={'pb-10'} paraStyles={'!block'} />
 
             {/* Container */}
             <Swiper
                 spaceBetween={30}
-                centeredSlides={true}
                 autoplay={{
                     delay: 4000,
                     disableOnInteraction: false,
                 }}
                 breakpoints={{
                     300: {
-                        slidesPerView: 2
+                        slidesPerView: 2,
                     },
                     666: {
-                        slidesPerView: 3
+                        slidesPerView: 3,
                     },
                     900: {
-                        slidesPerView: 4
+                        slidesPerView: 4,
                     },
-                    1250: {
-                        slidesPerView: 5
+                    1300: {
+                        slidesPerView: 5,
                     },
                 }}
                 modules={[Autoplay]}

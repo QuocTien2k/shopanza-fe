@@ -8,7 +8,9 @@ const Item = (props) => {
             {/* IMAGE */}
             <Link to={"/"} onMouseEnter={() => setHoverd(true)} onMouseLeave={() => setHoverd(false)} className="flexCenter p-2 bg-[#f5f5f5] overflow-hidden relative">
                 <img
-                    src={product.image.length > 1 && hovered ? product.image[1] : product.image[0]}
+                    src={
+                        product.image.length > 1 && hovered ? product.image[1] : product.image[0]
+                    }
                     alt="productImg"
                     className="transition-all duration-300" />
             </Link>
