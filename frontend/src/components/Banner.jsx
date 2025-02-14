@@ -7,10 +7,10 @@ const Banner = () => {
         <section className="max-padd-container">
             <div className="flex flex-col sm:flex-row flex-wrap gap-4 xl:gap-14 gap-y-10">
                 <div className="flex-1">
-                    <img src={banner1} alt="" className="rounded-full" />
+                    <img src={banner1} alt="" className="rounded-lg" />
                 </div>
                 <div className="flex-1">
-                    <img src={banner2} alt="" className="rounded-full" />
+                    <img src={banner2} alt="" className="rounded-lg" />
                 </div>
             </div>
         </section>

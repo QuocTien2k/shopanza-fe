@@ -15,7 +15,7 @@ const Header = () => {
         <header className="max-padd-container w-full mb-2">
             <div className="flexBetween py-3">
                 {/* LOGO */}
-                <Link to={"/"} className="flex flex-1 bold-24 xl:bold-28" >Shopanza</Link>
+                <Link to={"/"} className="flex flex-1 bold-24 xl:bold-28 no-underline border-none outline-none shadow-none" >Shopanza</Link>
 
                 {/* NAVBAR */}
                 <div className="flex-1">
