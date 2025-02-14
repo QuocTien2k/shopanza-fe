@@ -1,15 +1,18 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Title from "./Title"
-import { products } from "../assets/data"
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
 import Item from "./Item";
+import { ShopContext } from "../context/ShopContext";
 
 const NewArrivals = () => {
     const [PopularProducts, setPopularProducts] = useState([]);
+    const { products } = useContext(ShopContext);
+
     useEffect(() => {
         const data = products.slice(0, 7);
         //console.log(data);
@@ -56,3 +59,7 @@ const NewArrivals = () => {
 }
 
 export default NewArrivals
+
+/*
+- useContext: là 1 hook của React
+*/
