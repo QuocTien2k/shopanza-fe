@@ -12,7 +12,7 @@ import Footer from "../components/Footer";
 const Product = () => {
 
     const { productId } = useParams();
-    const { products, currency } = useContext(ShopContext);
+    const { products, currency, addToCart } = useContext(ShopContext);
     const [product, setProduct] = useState(null);
     const [image, setImage] = useState("");
     const [color, setColor] = useState("");
@@ -96,7 +96,7 @@ const Product = () => {
                             </div>
                         </div>
                         <div className="flex items-center gap-x-4">
-                            <button onClick={() => { }} className="btn-secondary !rounded-lg sm:w-1/2 flexCenter gap-x-2 capitalize">
+                            <button onClick={() => addToCart(product._id, color)} className="btn-secondary !rounded-lg sm:w-1/2 flexCenter gap-x-2 capitalize">
                                 Add to Cart <TbShoppingBagPlus />
                             </button>
                             <button onClick={() => { }} className="btn-white !rounded-lg !py-3.5">

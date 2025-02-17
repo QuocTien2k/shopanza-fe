@@ -1,6 +1,7 @@
-import { createContext, useState } from "react"
+import { createContext, useEffect, useState } from "react"
 import { products } from "../assets/data";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export const ShopContext = createContext();
 
@@ -9,7 +10,41 @@ const ShopContextProvider = (props) => {
     const navigate = useNavigate();
     const currency = "$";
     const delivery_charges = 10;
-    const value = { products, search, setSearch, currency, delivery_charges };
+
+    const [cartItems, setCardItems] = useState({});
+    const addToCart = async (itemId, color) => {
+
+        if (!color) {
+            toast.error("Vui lòng chọn màu!");
+            return;
+        }
+
+        let cartData = structuredClone(cartItems);
+
+        if (cartData[itemId]) {
+            if (cartData[itemId][color]) {
+                cartData[itemId][color] += 1;
+            } else {
+                cartData[itemId][color] = 1;
+            }
+        } else {
+            cartData[itemId] = {};
+            cartData[itemId][color] = 1;
+        }
+
+        setCardItems(cartData);
+    }
+
+    //getting total cart count
+
+    useEffect(() => {
+        //console.log(cartItems);
+    }, [cartItems]);
+
+    const value = {
+        products, search, setSearch, currency, delivery_charges,
+        cartItems, setCardItems, addToCart
+    };
     return (
         <ShopContext.Provider value={value}>{props.children}</ShopContext.Provider>
     )

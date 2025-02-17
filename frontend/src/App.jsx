@@ -4,11 +4,13 @@ import Home from "./pages/Home"
 import Collection from "./pages/Collection"
 import Blog from "./pages/Blog"
 import Product from "./pages/Product"
+import { ToastContainer } from "react-toastify"
 
 
 const App = () => {
   return (
     <main className="overflow-hidden text-tertiary" >
+      <ToastContainer />
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
