@@ -3,6 +3,8 @@ import Header from "./components/Header"
 import Home from "./pages/Home"
 import Collection from "./pages/Collection"
 import Blog from "./pages/Blog"
+import Product from "./pages/Product"
+
 
 const App = () => {
   return (
@@ -12,7 +14,7 @@ const App = () => {
         <Route path='/' element={<Home />} />
         <Route path='/collection' element={<Collection />} />
         <Route path='/blog' element={<Blog />} />
-
+        <Route path='/product/:productId' element={<Product />} />
       </Routes>
     </main>
   )

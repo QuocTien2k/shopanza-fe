@@ -6,7 +6,7 @@ const Item = (props) => {
     return (
         <div className="overflow-hidden">
             {/* IMAGE */}
-            <Link to={"/"} onMouseEnter={() => setHoverd(true)} onMouseLeave={() => setHoverd(false)} className="flexCenter p-2 bg-[#f5f5f5] overflow-hidden relative">
+            <Link to={`/product/${product._id}`} onMouseEnter={() => setHoverd(true)} onMouseLeave={() => setHoverd(false)} className="flexCenter p-2 bg-[#f5f5f5] overflow-hidden relative">
                 <img
                     src={
                         product.image.length > 1 && hovered ? product.image[1] : product.image[0]
