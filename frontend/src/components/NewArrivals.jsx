@@ -20,7 +20,7 @@ const NewArrivals = () => {
     }, [products])
     return (
         <section className="max-padd-container pt-16">
-            <Title title1={'New'} title2={'Arrivals'} titleStyles={'pb-10'} paraStyles={'!block'} />
+            <Title title1={'New'} title2={'Arrivals'} titleStyles={'pb-14'} paraStyles={'!block'} />
 
             {/* Container */}
             <Swiper

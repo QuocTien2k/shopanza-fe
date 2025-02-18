@@ -20,7 +20,7 @@ const PopularProducts = () => {
 
     return (
         <section className="max-padd-container py-16">
-            <Title title1={'Popular'} title2={'Products'} titleStyles={'pb-10'} paraStyles={'!block'} />
+            <Title title1={'Popular'} title2={'Products'} titleStyles={'pb-14'} paraStyles={'!block'} />
 
             {/* Container */}
             <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">

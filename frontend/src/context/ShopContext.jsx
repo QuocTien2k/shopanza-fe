@@ -12,6 +12,7 @@ const ShopContextProvider = (props) => {
     const delivery_charges = 10;
 
     const [cartItems, setCardItems] = useState({});
+
     const addToCart = async (itemId, color) => {
 
         if (!color) {
@@ -54,13 +55,27 @@ const ShopContextProvider = (props) => {
         return totalCount;
     }
 
+    //update quantities
+    const updateQuantities = (itemId, color, quantity) => {
+        let cartData = structuredClone(cartItems);
+
+        // Kiểm tra và khởi tạo nếu chưa tồn tại
+        if (!cartData[itemId]) {
+            cartData[itemId] = {};
+        }
+
+        cartData[itemId][color] = quantity;
+        setCardItems(cartData);
+    }
+
+
     useEffect(() => {
         //console.log(cartItems);
     }, [cartItems]);
 
     const value = {
         products, search, setSearch, currency, delivery_charges,
-        cartItems, setCardItems, addToCart, getCartCount
+        cartItems, setCardItems, addToCart, getCartCount, updateQuantities
     };
     return (
         <ShopContext.Provider value={value}>{props.children}</ShopContext.Provider>
