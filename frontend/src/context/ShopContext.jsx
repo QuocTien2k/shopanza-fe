@@ -36,6 +36,23 @@ const ShopContextProvider = (props) => {
     }
 
     //getting total cart count
+    const getCartCount = () => {
+        let totalCount = 0;
+
+        for (const items in cartItems) {
+            for (const item in cartItems[items]) {
+                try {
+                    if (cartItems[items][item] > 0) {
+                        totalCount += cartItems[items][item];
+                    }
+                } catch (error) {
+                    console.log(error);
+                }
+            }
+        }
+
+        return totalCount;
+    }
 
     useEffect(() => {
         //console.log(cartItems);
@@ -43,7 +60,7 @@ const ShopContextProvider = (props) => {
 
     const value = {
         products, search, setSearch, currency, delivery_charges,
-        cartItems, setCardItems, addToCart
+        cartItems, setCardItems, addToCart, getCartCount
     };
     return (
         <ShopContext.Provider value={value}>{props.children}</ShopContext.Provider>
