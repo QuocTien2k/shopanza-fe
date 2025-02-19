@@ -5,7 +5,7 @@ import PopularProducts from '../components/PopularProducts';
 import Banner from '../components/Banner';
 import About from '../components/About';
 import Newsletter from '../components/Newsletter';
-import Blog from './Blog';
+import Blog from '../components/Blog';
 import Footer from '../components/Footer';
 const Home = () => {
     return (
