@@ -122,7 +122,7 @@ export const products = [
         price: 60,
         image: [img6],
         category: "Headphones",
-        colors: ["XS", "Black", "Red"],
+        colors: ["Gray", "Black", "Red"],
         date: 1716623345448,
         popular: false
     },
@@ -179,7 +179,7 @@ export const products = [
         price: 30,
         image: [img11],
         category: "Cameras",
-        colors: ["Red", "Red"],
+        colors: ["Red", "Pink"],
         date: 1716628345448,
         popular: false
     },
@@ -225,7 +225,7 @@ export const products = [
         price: 15,
         image: [img15],
         category: "Mobiles",
-        colors: ["XS", "Black", "Red"],
+        colors: ["Gray", "Black", "Red"],
         date: 1716632345448,
         popular: true
     },

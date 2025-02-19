@@ -8,7 +8,7 @@ import Footer from "../components/Footer";
 
 
 const Cart = () => {
-    const { products, currency, cartItems, getCartCount, updateQuantities } = useContext(ShopContext);
+    const { products, currency, cartItems, getCartCount, updateQuantities, navigate } = useContext(ShopContext);
     const [cartData, setCartData] = useState([]);
     const [quantities, setQuantities] = useState({});
 
@@ -112,7 +112,7 @@ const Cart = () => {
                     <div className="flex my-20">
                         <div className="w-full sm:w-[450px]">
                             <CartTotal />
-                            <button className="btn-secondary mt-7">Proceed to checkout</button>
+                            <button onClick={() => navigate('/place-order')} className="btn-secondary mt-7">Proceed to checkout</button>
                         </div>
                     </div>
 
