@@ -1,14 +1,13 @@
 import { Link } from "react-router-dom"
 import Navbar from "./Navbar"
 import { FaBars, FaBarsStaggered } from "react-icons/fa6"
-import { TbUserCircle } from "react-icons/tb"
 import { RiUserLine } from "react-icons/ri"
 import { useContext, useState } from "react"
 import { ShopContext } from "../context/ShopContext"
 
 const Header = () => {
     const [menuOpened, setMenuOpened] = useState(false);
-    const { getCartCount } = useContext(ShopContext);
+    const { getCartCount, navigate } = useContext(ShopContext);
     const toggleMenu = () => setMenuOpened((prev) => {
         // console.log(prev)
         return !prev;
@@ -40,7 +39,7 @@ const Header = () => {
                         </div>
                     </Link>
                     <div className="group relative">
-                        <button className="btn-dark flexCenter gap-x-2">Login <RiUserLine className="text-xl" /></button>
+                        <button onClick={() => navigate('/login')} className="btn-dark flexCenter gap-x-2">Login <RiUserLine className="text-xl" /></button>
                     </div>
                 </div>
             </div>
