@@ -2,9 +2,13 @@ import { useState } from "react";
 import CartTotal from "../components/CartTotal"
 import Title from "../components/Title"
 import Footer from "../components/Footer";
+import Toast from "../context/Toast";
+
 
 const PlaceOrder = () => {
     const [method, setMethod] = useState('cod');
+    const [showToast, setShowToast] = useState(false);
+
     return (
         <div>
             <div className="bg-primary mb-16">
@@ -80,7 +84,12 @@ const PlaceOrder = () => {
                                 </div>
                             </div>
                             <div>
-                                <button type="submit" className="btn-secondary">Place Order</button>
+                                <button type="submit" onClick={() => setShowToast(true)} className="btn-secondary">
+                                    Place Order
+                                </button>
+                                {
+                                    showToast && <Toast message="Cảm ơn bạn đã trải nghiệm website" onClose={() => setShowToast(false)} />
+                                }
                             </div>
                         </div>
                     </div>
