@@ -1,7 +1,6 @@
 import { blogs } from "../assets/data"
 import Footer from "../components/Footer"
 
-
 const Blog = () => {
     return (
         <div>

@@ -9,11 +9,16 @@ const PlaceOrder = () => {
     const [method, setMethod] = useState('cod');
     const [showToast, setShowToast] = useState(false);
 
+    const handleSubmit = (e) => {
+        e.preventDefault(); // Ngăn chặn submit form làm reload trang
+        setShowToast(true);
+    };
+
     return (
         <div>
             <div className="bg-primary mb-16">
                 {/* Container */}
-                <form action="" className="max-padd-container py-10">
+                <form action="" className="max-padd-container py-10" onSubmit={handleSubmit}>
                     <div className="flex flex-col xl:flex-row gap-20 xl:gap-28">
                         {/* Left Side */}
                         <div className="flex-1 flex flex-col gap-3 text-[95%]">
@@ -84,11 +89,11 @@ const PlaceOrder = () => {
                                 </div>
                             </div>
                             <div>
-                                <button type="submit" onClick={() => setShowToast(true)} className="btn-secondary">
+                                <button type="submit" className="btn-secondary">
                                     Place Order
                                 </button>
                                 {
-                                    showToast && <Toast message="Cảm ơn bạn đã trải nghiệm website" onClose={() => setShowToast(false)} />
+                                    showToast && (<Toast message="Cảm ơn bạn đã trải nghiệm website" onClose={() => setShowToast(false)} />)
                                 }
                             </div>
                         </div>

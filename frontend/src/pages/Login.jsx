@@ -1,7 +1,15 @@
 import { useState } from "react"
 import login from "../assets/login.png"
+import Toast from "../context/Toast";
 const Login = () => {
     const [currState, setCurrState] = useState('Sign up')
+    const [showToast, setShowToast] = useState(false);
+
+    const handleSubmit = (e) => {
+        e.preventDefault(); // Ngăn chặn submit form làm reload trang
+        setShowToast(true);
+    };
+
     return (
         <div className="absolute top-0 left-0 h-full w-full z-50 bg-white">
             {/* Container */}
@@ -12,7 +20,7 @@ const Login = () => {
                 </div>
                 {/* Form Side */}
                 <div className="flexCenter w-full sm:w-1/2 text-[90%]">
-                    <form action="" className="flex flex-col items-center w-[90%] sm:max-w-md m-auto gap-y-5">
+                    <form action="" onSubmit={handleSubmit} className="flex flex-col items-center w-[90%] sm:max-w-md m-auto gap-y-5">
                         <div className="w-full mb-4">
                             <h3 className="bold-36">{currState}</h3>
                         </div>
@@ -47,6 +55,10 @@ const Login = () => {
                                 </div>
                             )}
                         </div>
+
+                        {showToast && (
+                            <Toast message="Cảm ơn bạn đã trải nghiệm website" onClose={() => setShowToast(false)} />
+                        )}
                     </form>
                 </div>
             </div>

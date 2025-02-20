@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import { ShopContext } from "../context/ShopContext"
 import Search from "../components/Search";
 import Item from "../components/Item";
+import { ChevronDown } from "lucide-react";
 
 
 const Collection = () => {
@@ -9,6 +10,7 @@ const Collection = () => {
     const { products, search } = useContext(ShopContext);
     const [category, setCategory] = useState([]);
     const [sortType, setSortType] = useState('relevant');
+    const [dropdownOpen, setDropdownOpen] = useState(false);
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 10;
@@ -92,15 +94,55 @@ const Collection = () => {
                             }
                         </div>
                     </div>
-                    <div className="px-4 py-3 mt-6 bg-white rounded-xl">
+                    {/* Sort Type */}
+                    <div className="px-4 py-3 mt-6 bg-white rounded-xl relative">
                         <h5 className="h5 mb-4">Sort By</h5>
-                        <select
-                            onChange={(e) => setSortType(e.target.value)}
-                            className="border border-slate-900/5 outline-none text-gray-30 medium-14 h-8 w-full rounded px-2">
-                            <option value="relevant">Relevant</option>
-                            <option value="low">Low</option>
-                            <option value="high">High</option>
-                        </select>
+
+                        {/* Custom Dropdown */}
+                        <div className="relative w-full">
+                            <button
+                                className="border border-slate-300 outline-none text-gray-700 medium-14 h-10 w-full rounded-lg px-3 bg-white shadow-sm flex justify-between items-center"
+                                onClick={() => setDropdownOpen(!dropdownOpen)}
+                            >
+                                {sortType === "relevant" ? "Relevant" : sortType === "low" ? "Low" : "High"}
+                                <ChevronDown className="w-5 h-5 text-gray-500" />
+                            </button>
+
+                            {dropdownOpen && (
+                                <ul className="absolute w-full bg-white border border-slate-300 shadow-md mt-1 rounded-lg overflow-hidden z-10">
+                                    <li
+                                        className={`px-3 py-2 cursor-pointer ${sortType === "relevant" ? "bg-gray-200" : "hover:bg-gray-100"
+                                            }`}
+                                        onClick={() => {
+                                            setSortType("relevant");
+                                            setDropdownOpen(false);
+                                        }}
+                                    >
+                                        Relevant
+                                    </li>
+                                    <li
+                                        className={`px-3 py-2 cursor-pointer ${sortType === "low" ? "bg-gray-200" : "hover:bg-gray-100"
+                                            }`}
+                                        onClick={() => {
+                                            setSortType("low");
+                                            setDropdownOpen(false);
+                                        }}
+                                    >
+                                        Low
+                                    </li>
+                                    <li
+                                        className={`px-3 py-2 cursor-pointer ${sortType === "high" ? "bg-gray-200" : "hover:bg-gray-100"
+                                            }`}
+                                        onClick={() => {
+                                            setSortType("high");
+                                            setDropdownOpen(false);
+                                        }}
+                                    >
+                                        High
+                                    </li>
+                                </ul>
+                            )}
+                        </div>
                     </div>
                 </div>
 
