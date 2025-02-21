@@ -67,19 +67,62 @@ const PlaceOrder = () => {
 
     const handleBlur = (e) => {
         const { name, value } = e.target;
-
-        // Tạo bản sao của errors để cập nhật
         let newErrors = { ...errors };
-        //console.log(newErrors);
 
-        // Nếu input bị bỏ trống, thêm lỗi
         if (!value.trim()) {
             newErrors[name] = `Vui lòng nhập ${name}`;
         } else {
-            delete newErrors[name]; // Nếu hợp lệ thì xóa lỗi
+            switch (name) {
+                case "firstName":
+                case "lastName":
+                    if (!/^[a-zA-Z\s]+$/.test(value)) {
+                        newErrors[name] = "Tên không hợp lệ";
+                    } else {
+                        delete newErrors[name];
+                    }
+                    break;
+                case "email":
+                    if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value)) {
+                        newErrors[name] = "Email không hợp lệ";
+                    } else {
+                        delete newErrors[name];
+                    }
+                    break;
+                case "phone":
+                    if (!/^0\d{9}$/.test(value)) {
+                        newErrors[name] = "Số điện thoại không hợp lệ";
+                    } else {
+                        delete newErrors[name];
+                    }
+                    break;
+                case "zip":
+                    if (!/^\d{5,6}$/.test(value)) {
+                        newErrors[name] = "Mã bưu chính không hợp lệ";
+                    } else {
+                        delete newErrors[name];
+                    }
+                    break;
+                case "street":
+                    if (value.length < 3) {
+                        newErrors[name] = "Địa chỉ quá ngắn";
+                    } else {
+                        delete newErrors[name];
+                    }
+                    break;
+                case "city":
+                case "state":
+                case "country":
+                    if (!/^[a-zA-Z\s]+$/.test(value)) {
+                        newErrors[name] = "Tên không hợp lệ";
+                    } else {
+                        delete newErrors[name];
+                    }
+                    break;
+                default:
+                    delete newErrors[name];
+            }
         }
 
-        // Cập nhật lỗi mới
         setErrors(newErrors);
     };
 
