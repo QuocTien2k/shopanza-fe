@@ -19,7 +19,7 @@ const Toast = ({ message, onClose }) => {
                 {/* Icon + Nội dung */}
                 <div className="flex items-center gap-3">
                     <CheckCircle size={24} className="text-green-500" />
-                    <span>{message}</span>
+                    <span className="text-center">{message}</span>
                 </div>
 
                 {/* Button OK */}
